@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import css from './ContactForm.module.css';
 // import { customAlphabet } from 'nanoid';
@@ -36,20 +37,7 @@ export class ContactForm extends Component {
 
     render() {
         return (
-            <form
-                className={css.form}
-                // style={
-                //     {
-                //         // width: '300px',
-                //         // height: '100vh',
-                //         // display: 'flex',
-                //         // flexDirection: 'column',
-                //         // border: '1px solid gray',
-                //     }
-                // }
-                action=""
-                onSubmit={this.handleSubmit}
-            >
+            <form className={css.form} action="" onSubmit={this.handleSubmit}>
                 <label className={css.label} htmlFor="">
                     Name
                     <br />
@@ -85,3 +73,7 @@ export class ContactForm extends Component {
         );
     }
 }
+
+ContactForm.propTypes = {
+    submitForm: PropTypes.func.isRequired,
+};

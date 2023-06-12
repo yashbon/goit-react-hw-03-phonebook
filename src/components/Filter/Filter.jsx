@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import css from './Filter.module.css';
 const Filter = props => {
-    const title = props.title;
+    const { title, onChange } = props;
     return (
         <label>
             {title} <br />
@@ -12,10 +13,15 @@ const Filter = props => {
                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 // required
                 // value={this.state.name}
-                onChange={props.onChange}
+                onChange={onChange}
             />
         </label>
     );
 };
 
 export default Filter;
+
+Filter.propTypes = {
+    title: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+};

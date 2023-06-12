@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 const ContactList = props => {
     // console.log(props);
@@ -21,3 +22,7 @@ const ContactList = props => {
 };
 
 export default ContactList;
+ContactList.propTypes = {
+    contacts: PropTypes.array.isRequired,
+    deleteContact: PropTypes.func.isRequired,
+};
