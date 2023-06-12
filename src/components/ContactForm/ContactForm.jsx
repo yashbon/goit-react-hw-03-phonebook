@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import css from './ContactForm.module.css';
 // import { customAlphabet } from 'nanoid';
 
 // const nanoid = customAlphabet('1234567890', 1);
@@ -11,8 +12,6 @@ export class ContactForm extends Component {
     };
 
     handleChange = event => {
-        // console.log(event.currentTarget.name);
-        // console.log(event.currentTarget.value);
         this.setState({
             [event.currentTarget.name]: event.currentTarget.value,
         });
@@ -38,21 +37,24 @@ export class ContactForm extends Component {
     render() {
         return (
             <form
-                // handleSubmit={this.handleSubmit}
-                style={{
-                    // width: '300px',
-                    // height: '100vh',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    // border: '1px solid gray',
-                }}
+                className={css.form}
+                // style={
+                //     {
+                //         // width: '300px',
+                //         // height: '100vh',
+                //         // display: 'flex',
+                //         // flexDirection: 'column',
+                //         // border: '1px solid gray',
+                //     }
+                // }
                 action=""
                 onSubmit={this.handleSubmit}
             >
-                <label htmlFor="">
+                <label className={css.label} htmlFor="">
                     Name
                     <br />
                     <input
+                        className={css.input}
                         type="text"
                         name="name"
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -62,20 +64,23 @@ export class ContactForm extends Component {
                         onChange={this.handleChange}
                     />
                 </label>
-                <label htmlFor="">
+                <label className={css.label} htmlFor="">
                     Number
                     <br />
                     <input
+                        className={css.input}
                         type="tel"
                         name="number"
-                        // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         value={this.state.number}
                         onChange={this.handleChange}
                     />
                 </label>
-                <button type="submit">Add contact</button>
+                <button className={css.form_button} type="submit">
+                    Add contact
+                </button>
             </form>
         );
     }

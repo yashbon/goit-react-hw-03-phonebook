@@ -37,11 +37,11 @@ export class App extends Component {
         this.setState({ filter: event.currentTarget.value });
     };
 
-    // deleteContact = id => {
-    //     this.setState(PrevState => ({
-    //         contacts: PrevState.contacts.filter(contact => contact.id !== id),
-    //     }));
-    // };
+    deleteContact = id => {
+        this.setState(PrevState => ({
+            contacts: PrevState.contacts.filter(contact => contact.id !== id),
+        }));
+    };
 
     // filteredContacts = () => {
     //     this.state.contacts.filter(contact =>
@@ -67,6 +67,7 @@ export class App extends Component {
                     alignItems: 'center',
                     // fontSize: 40,
                     color: '#010101',
+                    backgroundColor: 'LightSteelBlue',
                 }}
             >
                 <h1>Phonebook</h1>

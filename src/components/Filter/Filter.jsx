@@ -1,9 +1,11 @@
+import css from './Filter.module.css';
 const Filter = props => {
     const title = props.title;
     return (
         <label>
             {title} <br />
             <input
+                className={css.filterInput}
                 type="text"
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
