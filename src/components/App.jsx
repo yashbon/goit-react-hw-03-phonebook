@@ -88,7 +88,6 @@ export class App extends Component {
                 }}
             >
                 <h1>Phonebook</h1>
-                hello
                 <ContactForm submitForm={this.handleSubmitForm} />
                 <h2>Contacts</h2>
                 <Filter
