@@ -17,6 +17,23 @@ export class App extends Component {
         filter: '',
     };
 
+    componentDidMount() {
+        const contacts = JSON.parse(localStorage.getItem('contacts'));
+        if (contacts) {
+            this.setState({ contacts: contacts });
+        }
+    }
+
+    componentDidUpdate(prevState) {
+        if (this.state.contacts !== prevState.contacts) {
+            console.log('uppdate');
+            localStorage.setItem(
+                'contacts',
+                JSON.stringify(this.state.contacts)
+            );
+        }
+    }
+
     handleSubmitForm = contact => {
         if (
             this.state.contacts.find(
@@ -47,10 +64,6 @@ export class App extends Component {
         }));
     };
 
-    // filteredContacts = () => {
-    //     this.state.contacts.filter(contact =>
-    //         contact.name.includes(this.state.filter))
-    // };
     filteredContacts = () => {
         this.state.contacts.filter(contact =>
             contact.name.toLowerCase().includes(this.state.filter.toLowerCase())
@@ -75,6 +88,7 @@ export class App extends Component {
                 }}
             >
                 <h1>Phonebook</h1>
+                hello
                 <ContactForm submitForm={this.handleSubmitForm} />
                 <h2>Contacts</h2>
                 <Filter
