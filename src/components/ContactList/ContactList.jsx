@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
 const ContactList = props => {
-    // console.log(props);
     const { contacts, deleteContact } = props;
     return (
         <ul className={css.contactList}>
